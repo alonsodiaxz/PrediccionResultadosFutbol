@@ -1,0 +1,71 @@
+*{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+h1{
+    font-size: 4em;
+}
+
+ 
+#formulario{
+    background-color: rgb(223, 188, 107);
+    width: 900px;
+    border: 2px solid rgb(173, 70, 45);
+    padding: 5px 40px 20px ;
+    margin-left: 150px;
+    margin-right: 150px;
+  }
+
+  .importante{
+    font-weight:bold;
+    color: rgb(129, 35, 35);
+    
+  }
+
+ #teamLocal{
+  padding: 8px 20px 10px ;
+  border-style:groove;
+ }
+ #teamVisitante{
+  padding: 8px 20px 10px ;
+  margin-left: 280px ;
+  border-style:groove;
+}
+
+  #botonLimpiar{
+    padding:  8px 20px 10px ;
+    margin-left: 200px ;
+  }
+
+  form{
+    margin-left: 80px;
+  }
+
+  #partido{
+    font-size: 50px;
+    font-weight: bold;
+    margin-left: 200px;
+  }
+
+  #equipoVisitante{
+    margin-left: 300px;
+    font-weight: bolder;
+    font-size: 20px;
+  }
+
+  #equipoLocal{
+    font-weight: bolder;
+    font-size: 20px;
+  }
+
+  #resultadoBoton{
+    padding: 8px 20px 10px;
+    border-radius: 10px;
+    margin-left: 230px; 
+  }
+
+  #comentarios{
+    margin-left: 100px;
+  }
+
+

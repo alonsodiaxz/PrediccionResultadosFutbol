@@ -1,0 +1,81 @@
+{%  extends 'layout.html' %}
+{% block body %}
+<body>
+  <div class="cabecera">
+    <h1 class="importante">Predictor de fútbol</h1>
+    <p class="importante">Aplicación Web que nos permitirá predecir resultados en tiempo real.</p>
+  </div>
+
+<hr id="raya">
+<div class="row">
+  <div class="col-md-5">
+    {% with messages = get_flashed_messages() %}
+    {%  if messages %}
+    {%  for message in messages %}
+  
+    <div id="warning" class="alert alert-warning alert-dismissible fade show" role="alert">
+      {{ message}}
+      <button  id="Botonwarning" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+   <!--<img src="foto.jpg" alt="" width="100" height="100" />-->
+{%  endfor %}
+{%  endif %}
+{%  endwith %}
+    <div class="card card-body" id="formulario">
+      <form action="/add" method="POST">
+        <label id = "partido"> Partido</label> <br>
+        <label id="equipoLocal" for="teams" align = left>Equipo local:</label>
+        <label  id="equipoVisitante" for="teams">Equipo visitante:</label align = right><br>
+        <select name="local" id="teamLocal" align = left>
+          <option value="Real Madrid">Real Madrid</option>
+          <option value="FC barcelona">FC Barcelona</option>
+          <option value="Sevilla">Sevilla</option>
+          <option value="Valencia">Valencia CF</option>
+        </select> 
+        <select  id ="teamVisitante" name="visitante"  align = right>
+          <option value="FC barcelona">FC Barcelona</option>
+          <option value="Real Madrid">Real Madrid</option>
+          <option value="Sevilla">Sevilla</option>
+          <option value="Valencia">Valencia CF</option>
+        </select> <br>
+        <img  id="ImagenLocal" src="../static/img/madrid.png" alt="" width="120" height="120"  align = left>
+        <img id="ImagenVisitante" src="../static/img/barcelona.png" alt="" width="120" height="120"  align = right>
+        <div class="form-group">
+          <br><br>
+          <button id="resultadoBoton" type="submit"  class="center" align = right> Resultado </button>
+        </div> 
+        <br><br>
+        <textarea id="comentarios" name="Comentarios" placeholder="Escribe tu comentario aqui" cols="50" rows="6"></textarea>
+        <br><br>
+        <input  id ="botonLimpiar" type="reset" name="limpiar" value="Limpiar el formulario"> 
+        <br>
+        {% block content %}
+        {% endblock %}
+       </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+<!--CAJAS DE TEXTO
+<input type="text" name="local" placeholder="Local" align= left>
+<input type="text" name="visitante" placeholder="Visitante" align= right>
+
+FORMAR UNA TABLA
+<table> 
+  <thread>
+    <tr>
+      <td>Id</td>
+      <td>Local</td>
+      <td>Resultado</td>
+      <td>Visitante</td>
+    </tr>
+  </thread>
+  <tbody>
+
+  </tbody>
+</table>
+-->
+
+
