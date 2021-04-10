@@ -1,0 +1,84 @@
+{
+    "equipos": [
+        {
+            "id": "1",
+            "name": "RC Celta Vigo"
+        },
+        {
+            "id": "2",
+            "name": "Valencia CF"
+        },
+        {
+            "id": "3",
+            "name": "RCD Mallorca"
+        },
+        {
+            "id": "4",
+            "name": "CD Leganés"
+        },
+        {
+            "id": "5",
+            "name": "Villarreal CF"
+        },
+        {
+            "id": "6",
+            "name": "Deportivo Alavés"
+        },
+        {
+            "id": "7",
+            "name": "RCD Espanyol"
+        },
+        {
+            "id": "8",
+            "name": "Real Betis"
+        },
+        {
+            "id": "9",
+            "name": "Atlético Madrid"
+        },
+        {
+            "id": "10",
+            "name": "Granada CF"
+        },
+        {
+            "id": "11",
+            "name": "Levante UD"
+        },
+        {
+            "id": "12",
+            "name": "CA Osasuna"
+        },
+        {
+            "id": "13",
+            "name": "Real Madrid"
+        },
+        {
+            "id": "14",
+            "name": "Getafe CF"
+        },
+        {
+            "id": "15",
+            "name": "FC Barcelona"
+        },
+        {
+            "id": "16",
+            "name": "Sevilla FC"
+        },
+        {
+            "id": "17",
+            "name": "Athletic Club Bilbao"
+        },
+        {
+            "id": "18",
+            "name": "Real Sociedad"
+        },
+        {
+            "id": "19",
+            "name": "SD Eibar"
+        },
+        {
+            "id": "20",
+            "name": "Real Valladolid CF"
+        }
+    ]
+}
