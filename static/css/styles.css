@@ -17,7 +17,7 @@ margin-left: 300px;
 margin-left: 20px;
 }
 .cabecera{
-background-image: url("../img/fondo2.jpg");
+background-image: url("../static/img/slashes.png");
 height: 150px;
 }
 
@@ -32,7 +32,7 @@ font-weight: bold;
 }
 
 #formulario{
-  background-image: url("../img/fondo4.jpg");
+  background-image: url("../static/img/fondo4.jpg");
   width: 900px;
   border: 2px solid rgb(34, 162, 172);
   padding: 25px 40px 20px ;
@@ -42,9 +42,29 @@ font-weight: bold;
   margin-bottom: 20px;
 }
 
+#comen{
+
+  background-color: rgb(3, 3, 3);
+  border-radius: 18px;
+  color: rgb(224, 24, 24);
+
+
+}
+
+#porra{
+  margin-left: 20px;
+  color: seashell;
+}
+
+#co{
+  margin-left: 250px;
+
+}
+
 .importante{
   font-weight:bold;
-  color: rgbrgb(184, 83, 83);
+  color: rgb(255, 255, 255);
+  margin-left: 8px;
   
 }
 
@@ -72,7 +92,7 @@ form{
 #partido{
   font-size: 50px;
   font-weight: bold;
-  margin-left: 225px;
+  margin-left: 215px;
 }
 
 #equipoVisitante{
@@ -89,7 +109,7 @@ form{
 #resultadoBoton{
   padding: 8px 20px 10px;
   border-radius: 10px;
-  margin-left: 230px; 
+  margin-left: 260px; 
   margin-top: 5px;
 }
 
@@ -98,6 +118,12 @@ form{
 }
 
 .row{
-  background-image: url("../img/fondo3.jpg");
+  background-image: url("../static/img/fondo3.jpg");
   margin-left: 1px;
+}
+
+#resul{
+  background-color: rgb(221, 218, 29);
+  border-style:solid;
+  border-color: rgba(255, 208, 0, 0.781);
 }

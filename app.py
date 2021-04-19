@@ -13,10 +13,7 @@ app.secret_key = 'mysecretkey'
 
 #CÓDIGO DEL CSV
 datos = pd.read_csv('Resultados.csv', header = 0)
-#print(datos)
-#datos.columns = ['Jornada','Fecha','Local','Resultado','Visitante','Ganador'] Cuando se arregle el csv
 datos.columns = ['Jornada','Fecha','Local','Resultado','Visitante']
-#print(datos.columns)
 equipos = datos['Local']
 clubes = []
 for equipo in equipos:
@@ -55,8 +52,6 @@ def add():
     
   return redirect(url_for('resultado'))
   
- 
-
    
 def envuelveCadenaenHTML(aleatorio, equipoLocal, equipoVisitante, equipoin1, equipoin2, comentarios):
     nombreArchivo = './templates/resultado.html'
@@ -118,6 +113,4 @@ def convertirNombre(aleatorio):
 
 app.run()
 
-#https://www.youtube.com/watch?v=IgCfZkR8wME
-#https://www.youtube.com/watch?v=D1W8H4Rkb9A&t=133s&ab_channel=FaztCode
 
