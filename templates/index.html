@@ -26,17 +26,26 @@
         <label id="equipoLocal" for="teams" align = left>Equipo local:</label>
         <label  id="equipoVisitante" for="teams">Equipo visitante:</label align = right><br>
         <select name="local" id="teamLocal" align = left>
+            {% block header %}
+            <option value=Selec> Seleccione equipo:</option>
+            {% endblock%}
         </select> 
         <select  id ="teamVisitante" name="visitante"  align = right>
+            {% block title %}
+            <option value=Selec> Seleccione equipo:</option>
+            {% endblock %}
         </select> <br>
-        <img  id="ImagenLocal" src="../static/img/madrid.png" alt="" width="120" height="120"  align = left>
-        <img id="ImagenVisitante" src="../static/img/barcelona.png" alt="" width="120" height="120"  align = right>
+       
+        {% block image %}
+        <img  id="ImagenLocal" src="../static/img/Local.png" alt="" width="120" height="120"  align = left>
+        <img id="ImagenVisitante" src="../static/img/Visitante.png" alt="" width="120" height="120"  align = right>
+        {% endblock %}
         <div class="form-group">
           <br><br>
           <button id="resultadoBoton" type="submit"  class="center" align = right> Resultado </button>
         </div> 
         <br><br>
-        <textarea id="comentarios" name="Comentarios" placeholder="Escribe tu comentario aqui" cols="50" rows="6"></textarea>
+        <textarea id="comentarios" name="Comentarios" placeholder="Escriba su pronóstico aquí." cols="50" rows="6"></textarea>
         <br><br>
         <!--<input  id ="botonLimpiar" type="reset" name="limpiar" value="Limpiar el formulario"> -->
         <br>
@@ -52,13 +61,12 @@
 <!--<script src="../static/json/equipos.json"></script>-->
 
 <script>
-
-  html = "";
+     html = "";
   equipos = [
   {
             "id": "1",
-            "name": "Real Madrid",
-            "in": "mad"
+            "name": "Seleccione equipo:",
+            "in": "Selec"
         },
         {
             "id": "2",
@@ -72,7 +80,7 @@
         },
         {
             "id": "4",
-            "name": "CD Leganés",
+            "name": "CD Leganes",
             "in": "lega"
         },
         {
@@ -82,7 +90,7 @@
         },
         {
             "id": "6",
-            "name": "Deportivo Alavés",
+            "name": "Deportivo Alaves",
             "in": "alave"
         },
         {
@@ -97,7 +105,7 @@
         },
         {
             "id": "9",
-            "name": "Atlético Madrid",
+            "name": "Atletico Madrid",
             "in": "atlma"
         },
         {
@@ -154,15 +162,18 @@
             "id": "20",
             "name": "Real Valladolid CF",
             "in": "vallad"
+        },{
+            "id": "21",
+            "name": "Real Madrid",
+            "in": "mad"
         }
     ]
 
   for(var key in equipos) {
       html += "<option value=" + equipos[key].in  + ">" +equipos[key].name + "</option>"
   }
-  
-  document.getElementById("teamLocal").innerHTML = html;
 
+document.getElementById("teamLocal").innerHTML = html;
 </script>
 
 <script> 
@@ -171,8 +182,8 @@ htmll = "";
   teams = [
         {
             "id": "1",
-            "name": "FC Barcelona",
-            "in": "barce"
+            "name": "Seleccione equipo:",
+            "in": "Selec"
         },
         {
             "id": "2",
@@ -186,7 +197,7 @@ htmll = "";
         },
         {
             "id": "4",
-            "name": "CD Leganés",
+            "name": "CD Leganes",
             "in": "lega"
         },
         {
@@ -196,7 +207,7 @@ htmll = "";
         },
         {
             "id": "6",
-            "name": "Deportivo Alavés",
+            "name": "Deportivo Alaves",
             "in": "alave"
         },
         {
@@ -211,7 +222,7 @@ htmll = "";
         },
         {
             "id": "9",
-            "name": "Atlético Madrid",
+            "name": "Atletico Madrid",
             "in": "atlma"
         },
         {
@@ -268,6 +279,12 @@ htmll = "";
             "id": "20",
             "name": "Real Valladolid CF",
             "in": "vallad"
+        },
+        {
+            
+            "id": "21",
+            "name": "FC Barcelona",
+            "in": "barce"
         }
     ]
 

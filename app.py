@@ -1,7 +1,8 @@
 from flask import Flask
 from flask import request, render_template, url_for, redirect, flash
-#import sqlite3
+from random import choice
 import pandas as pd
+
 
 app = Flask(__name__)
 app.config["DEBUG"] = True #Permite ir actualizando constantemente los cambios que vayamos haciendo en el codigo sin tener que reiniciar el servidor.
@@ -23,7 +24,10 @@ for equipo in equipos:
     clubes.append(equipo)
 print ('\nEquipos de la liga: ',clubes)
 print('Número de equipos:',len(clubes),'\n')
-#print(datos[['Local','Visitante']])
+
+global equipoLocal
+global equipoVisitante
+global aleatorio
 
 
 #Ejemplo de interfaz con html.
@@ -38,38 +42,79 @@ def resultado():
 @app.route('/add', methods=['GET','POST'])
 def add():
   if request.method == 'POST':
-    local = request.form['local']
-    visitante = request.form['visitante']
-    print(local)
-    print(visitante)
-    if local == visitante:
+    equipoin1 = request.form['local']
+    equipoin2 = request.form['visitante']
+    if equipoin1 == equipoin2:
       flash('Error, por favor elija equipos distintos')
       return redirect(url_for('diseno'))
-  print(local+' : '+visitante)
-  print(request.form['Comentarios'])
+    comentarios = request.form['Comentarios']
+    aleatorio = choice([equipoin1, "empate",equipoin2]) #Genera el número aleatorio.
+    equipoLocal = convertirNombre(equipoin1)
+    equipoVisitante = convertirNombre(equipoin2)
+    envuelveCadenaenHTML(aleatorio, equipoLocal, equipoVisitante, equipoin1, equipoin2,comentarios)
+    
   return redirect(url_for('resultado'))
+  
+ 
 
-'''
-def envuelveCadenaenHTML():
-
-    nombreArchivo = '/templates/index.html'
-    #'index.html'
+   
+def envuelveCadenaenHTML(aleatorio, equipoLocal, equipoVisitante, equipoin1, equipoin2, comentarios):
+    nombreArchivo = './templates/resultado.html'
     f = open(nombreArchivo,'w')
 
-    wrapper = """<html>
-    <head>
-    <title>%s output - %s</title>
-    </head>
-    <body><p>URL: <a href=\"%s\">%s</a></p><p>%s</p></body>
-    </html>"""
+    aleatorio = convertirNombre(aleatorio)
+    equipoin1name = convertirNombre(equipoin1)
+    equipoin2name = convertirNombre(equipoin2)
 
-    todo = wrapper % (programa, ahora, url, url, body)
-    f.write(todo)
+    auxiliar = "<div id='resul'><h1>Resultado: {0} </h1></div> <br> <div id = 'comen'> <h2 id='co'> Pronosticos: </h2><h6 id='porra'> {1} </h6> </div> ".format(aleatorio, comentarios)
+    wrapper = '{%  extends '+ "'index.html'"+' %} {% block header %} <option value='+  equipoin1 +'> '+equipoin1name+'</option> {% endblock%} {% block title %} <option value= '+equipoin2+'> '+equipoin2name+' </option> {% endblock %}{% block image %} <img  id="ImagenLocal" src="../static/img/'+equipoLocal+'.png" alt="" width="120" height="120"  align = left> <img id="ImagenVisitante" src="../static/img/'+equipoVisitante+'.png" alt="" width="120" height="120"  align = right> {% endblock %} {% block content %}'+ auxiliar+ '{% endblock content %}'
+
+    f.write(wrapper)
     f.close()
-   ''' 
 
-#return redirect(url_for('diseno'))
-#'<h1>EL equipo ganador es el real madrid</h1>'
+def convertirNombre(aleatorio):
+  if(aleatorio == "mad"): 
+    aleatorio = "Real Madrid"
+  elif(aleatorio == "vale"):
+    aleatorio = "Valencia CF"
+  elif(aleatorio == "vallad"):
+    aleatorio ="Real Valladolid CF"
+  elif(aleatorio == "eibar"):
+    aleatorio = "SD Eibar"
+  elif(aleatorio == "realso"):
+    aleatorio = "Real Sociedad"
+  elif(aleatorio == "athl"):
+    aleatorio = "Athletic Club Bilbao"
+  elif(aleatorio == "sev"):
+    aleatorio = "Sevilla FC"
+  elif(aleatorio == "barce"):
+    aleatorio = "FC Barcelona"
+  elif(aleatorio == "get"):
+    aleatorio = "Getafe CF"
+  elif(aleatorio == "celta"):
+    aleatorio = "RC Celta Vigo"
+  elif(aleatorio == "osasu"):
+    aleatorio = "CA Osasuna"
+  elif(aleatorio == "levan"):
+    aleatorio = "Levante UD"
+  elif(aleatorio == "grana"):
+    aleatorio = "Granada CF"
+  elif(aleatorio == "atlma"):
+    aleatorio = "Atletico Madrid"
+  elif(aleatorio == "betis"):
+    aleatorio = "Real Betis"
+  elif(aleatorio == "espany"):
+    aleatorio = "RCD Espanyol"
+  elif(aleatorio == "alave"):
+    aleatorio = "Deportivo Alaves"
+  elif(aleatorio == "villa"):
+    aleatorio = "Villarreal CF"
+  elif(aleatorio == "lega"):
+    aleatorio = "CD Leganes"
+  elif(aleatorio == "mall"):
+    aleatorio = "RCD Mallorca"
+  
+  return aleatorio
 
 app.run()
 
