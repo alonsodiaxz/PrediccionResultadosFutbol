@@ -41,8 +41,11 @@ def add():
   if request.method == 'POST':
     equipoin1 = request.form['local']
     equipoin2 = request.form['visitante']
-    if equipoin1 == equipoin2:
+    if equipoin1 == equipoin2 and (equipoin1 != 'Selec'or equipoin2 !='Selec'):
       flash('Error, por favor elija equipos distintos')
+      return redirect(url_for('diseno'))
+    if equipoin1 == 'Selec'or equipoin2=='Selec':
+      flash('Error, por favor introduzca los equipos que disputarán el partido')
       return redirect(url_for('diseno'))
     comentarios = request.form['Comentarios']
     aleatorio = choice([equipoin1, "empate",equipoin2]) #Genera el número aleatorio.
